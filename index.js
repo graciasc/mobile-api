@@ -1,13 +1,16 @@
 const express = require('express')
-const app = express();
+let app = express();
 const port = process.env.PORT || 3000;
+const routes = require('./routes')
 
 
 
-app.use('/heartbeat', (req, res) => {
-res.send('BEEP BEEP')
-})
+// app.use('/', (req, res) => {
+// res.send('HEART BEEP BEEP')
+// })
 
 app.listen(port, () => {
-console.log('Mobile App CS3680')
-})
+  console.log("Running")
+});
+
+app = routes.register(app)
