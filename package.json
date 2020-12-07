@@ -1,0 +1,9 @@
+{
+  "name": "mobile-api",
+  "version": "1.0.0",
+  "description": "Api for mobile class CS 3680",
+  "main": "index.js",
+  "repository": "git@github.com:graciasc/mobile-api.git",
+  "author": "Gracias <gracias.claude@outlook>",
+  "license": "MIT"
+}
