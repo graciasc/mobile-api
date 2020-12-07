@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "git@github.com:graciasc/mobile-api.git",
   "author": "Gracias <gracias.claude@outlook>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "vercel": "^21.0.1"
+  },
+  "scripts": {
+    "build": "yarn node index.js"
+  }
 }
