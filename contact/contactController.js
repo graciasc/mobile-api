@@ -4,7 +4,7 @@ module.exports = {
 
   async create(req, res) {
     res.send('Contact Creation')
-    let sql = `INSERT INTO Contacts (name, age, realtedHow) VALUES (${req.body.name},${req.body.age},${req.body.relatedHow});`
+    let sql = `INSERT INTO Contacts (name, age, relatedHow) VALUES (${req.body.name},${req.body.age},${req.body.relatedHow});`
     let result = await db.create(sql)
     console.log(result)
   },

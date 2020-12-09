@@ -10,13 +10,13 @@ let db = new sqlite3.Database('./sqlite.db', (err) => {
 
 const create = (sql) => {
     return new Promise((resolve) => {
-        db.run(sql, function(err) {
+        db.run(sql, function(err, row) {
 
             if (err) console.log(err.message)
 
             let resp = {
                 "message":"create successful",
-                "data":rows
+                "data":row
             }
             resolve(resp)
         })
@@ -30,7 +30,7 @@ const remove = (sql) => {
             if (err) console.error(err.message)
             let resp = {
                 "message":" delete success",
-                // "data":rows
+                "data":row
             }
             resolve(resp)
         })
