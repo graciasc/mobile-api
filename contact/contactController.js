@@ -3,10 +3,10 @@ let db = require('../database')
 module.exports = {
 
   async create(req, res) {
-    res.send('Contact Creation')
-    let sql = `INSERT INTO Contacts (name, age, relatedHow) VALUES (${req.body.name},${req.body.age},${req.body.relatedHow});`
+    let sql = `INSERT INTO Contacts (name, age, relatedHow) VALUES ("${req.body.name}","${req.body.age}","${req.body.relatedHow}");`
     let result = await db.create(sql)
     console.log(result)
+    res.send(`Successfully saved ${JSON.stringify(result)}`)
   },
   async delete(req, res) {
     res.send('Contact delete')
@@ -15,11 +15,10 @@ module.exports = {
     console.log(result)
   },
   async list(req, res) {
-    res.send('Contact list')
+ 
     let sql = `SELECT * FROM Contacts;`
     let result = await db.list(sql)
-    console.log(result)
-    // res.send(result)
+    res.send(result)
   }
 
 }
