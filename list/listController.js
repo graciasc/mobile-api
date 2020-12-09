@@ -1,24 +1,22 @@
-let db = require('../database')
+let db = require("../database");
 
 module.exports = {
-
   async create(req, res) {
-    res.send('ToDo Creation')
-    let sql = `INSERT INTO Items (name, description, priority) VALUES ("${req.body.name}","${req.body.description}","${req.body.priority})";`
-    let result = await db.create(sql)
-    console.log(result)
+    console.log(req.body)
+    let sql = `INSERT INTO Items (name, description, priority) VALUES ("${req.body.name}","${req.body.description}","${req.body.priority}");`
+    let result = await db.create(sql);
+    res.send("ToDo Creation");
+
   },
   async delete(req, res) {
-    res.send('ToDo delete')
-    let sql = `DELETE FROM Items WHERE id = "${req.body.id}";`
-    let result = await db.remove(sql)
-    console.log(result)
+    let sql = `DELETE FROM Items WHERE name = "${req.body.name}";`;
+    let result = await db.remove(sql);
+    res.send("ToDo delete");
   },
-  async list(req,res) {
-    console.log('ToDo list')
-    let sql = `SELECT * FROM Items;`
-    let result = await db.list(sql)
+  async list(req, res) {
+    let sql = `SELECT * FROM Items;`;
+    let result = await db.list(sql);
     console.log(result)
-  }
-
-}
+    res.send(result.data);
+  },
+};
