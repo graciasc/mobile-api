@@ -9,16 +9,16 @@ module.exports = {
     res.send(`Successfully saved ${JSON.stringify(result)}`)
   },
   async delete(req, res) {
-    res.send('Contact delete')
-    let sql = `DELETE FROM Contacts WHERE id = ${req.body.id};`
+    let sql = `DELETE FROM Contacts WHERE name = "${req.body.name}";`
     let result = await db.remove(sql)
-    console.log(result)
+    res.send('Contact deleted')
+
   },
   async list(req, res) {
  
     let sql = `SELECT * FROM Contacts;`
     let result = await db.list(sql)
-    res.send(result)
+    res.send(result.data)
   }
 
 }
